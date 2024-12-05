@@ -1,0 +1,36 @@
+﻿<Window x:Class="WpfAppLeon.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Система управления персоналом" Height="450" Width="700">
+    <Grid>
+        <!-- Таблица сотрудников -->
+        <DataGrid x:Name="EmployeeDataGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="False" ItemsSource="{Binding Employees}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Ф.И.О." Binding="{Binding Name}" Width="auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Должность" Binding="{Binding Job}" Width="auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Ставка" Binding="{Binding RatePerShift}" Width="auto"/>
+                <DataGridTextColumn Header="Отпуск" Binding="{Binding VacationDays}" Width="auto"/>
+                <DataGridTemplateColumn Header="Смены">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding Shifts}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding Worked, Mode=TwoWay}" Width="30" Margin="0,0,5,0"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Зарплата" Binding="{Binding TotalSalary}" Width="auto" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Кнопки -->
+        <Button Content="Рассчитать зарплату" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Width="150" Click="OnCalculateSalary"/>
+        <Button Content="Обновить данные" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10" Width="150" Click="Update"/>
+        <Button Content="Добавить / Удалить сотрудника" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10" Width="200" Click="OpenEmployeeForm"/>
+    </Grid>
+</Window>

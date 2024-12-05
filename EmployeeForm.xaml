@@ -1,0 +1,27 @@
+﻿<Window x:Class="WpfAppLeon.EmployeeForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавление / Удаление сотрудника" Height="450" Width="400">
+    <Grid>
+        <!-- Поля для добавления нового сотрудника -->
+        <TextBlock Text="Ф.И.О." VerticalAlignment="Top" Margin="10" />
+        <TextBox x:Name="NameTextBox" VerticalAlignment="Top" Margin="10,40,10,0" Height="25"/>
+
+        <TextBlock Text="Должность" VerticalAlignment="Top" Margin="10,80,10,0" />
+        <TextBox x:Name="JobTextBox" VerticalAlignment="Top" Margin="10,110,10,0" Height="25"/>
+
+        <TextBlock Text="Ставка" VerticalAlignment="Top" Margin="10,150,10,0" />
+        <TextBox x:Name="RatePerShiftTextBox" VerticalAlignment="Top" Margin="10,250,10,0" Height="25"/>
+        
+        <TextBlock Text="Отпуск" VerticalAlignment="Top" Margin="10,220,10,0" />
+        <TextBox x:Name="VacationTextBox" VerticalAlignment="Top" Margin="10,180,10,0" Height="25"/>
+
+        <!-- Поле для удаления сотрудника -->
+        <TextBlock Text="ID сотрудника (для удаления)" VerticalAlignment="Top" Margin="10,290,10,0" />
+        <TextBox x:Name="EmployeeIdTextBox" VerticalAlignment="Top" Margin="10,320,10,0" Height="25"/>
+
+        <!-- Кнопки -->
+        <Button Content="Добавить сотрудника" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,370,10,0" Height="30" Width="150" Click="AddEmployeeButton_Click"/>
+        <Button Content="Удалить сотрудника" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10,370,10,0" Height="30" Width="150" Click="DeleteEmployeeButton_Click"/>
+    </Grid>
+</Window>
